@@ -12,7 +12,9 @@ var rootCmd = &cobra.Command{
 	Use:   "GoWebFinger",
 	Short: "A WebFinger server implementation in Golang",
 	Run: func(cmd *cobra.Command, args []string) {
-		api.Serve()
+		app := &api.App{}
+		app.Init()
+		app.Serve()
 	},
 }
 

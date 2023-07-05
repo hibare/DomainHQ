@@ -1,6 +1,7 @@
 package config
 
 import (
+	"github.com/hibare/DomainHQ/internal/constants"
 	"github.com/hibare/DomainHQ/internal/env"
 	log "github.com/sirupsen/logrus"
 )
@@ -28,12 +29,12 @@ func LoadConfig() {
 
 	Current = &Config{
 		Server: ServerConfig{
-			ListenAddr: env.MustString("LISTEN_ADDR", "0.0.0.0"),
-			ListenPort: env.MustInt("LISTEN_PORT", 5000),
+			ListenAddr: env.MustString("LISTEN_ADDR", constants.DefaultAPIListenAddr),
+			ListenPort: env.MustInt("LISTEN_PORT", constants.DefaultAPIListenPort),
 		},
 		WebFinger: WebFingerConfig{
-			Resource: env.MustString("WEB_FINGER_RESOURCE", "https://auth.example.com"),
-			Domain:   env.MustString("WEB_FINGER_DOMAIN", "example.com"),
+			Resource: env.MustString("WEB_FINGER_RESOURCE", constants.DefaultWebFingerResource),
+			Domain:   env.MustString("WEB_FINGER_DOMAIN", constants.DefaultWebFingerDomain),
 		},
 	}
 

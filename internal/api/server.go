@@ -16,29 +16,35 @@ import (
 	"github.com/hibare/DomainHQ/internal/config"
 )
 
+type App struct {
+	Router *chi.Mux
+}
+
 func home(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Good to see you")
 }
 
-func Serve() {
+func (a *App) Init() {
+	a.Router = chi.NewRouter()
+	a.Router.Use(middleware.RequestID)
+	a.Router.Use(middleware.RealIP)
+	a.Router.Use(middleware.Logger)
+	a.Router.Use(middleware.Recoverer)
+	a.Router.Use(middleware.Timeout(60 * time.Second))
+	a.Router.Use(middleware.StripSlashes)
+	a.Router.Use(middleware.CleanPath)
+
+	a.Router.Get("/", home)
+	a.Router.Get("/ping", handlers.HealthCheck)
+	a.Router.With(httpin.NewInput(handlers.WebFingerParams{})).Get("/.well-known/webfinger", handlers.WebFinger)
+}
+
+func (a *App) Serve() {
 	wait := time.Second * 15
 	addr := fmt.Sprintf("%s:%d", config.Current.Server.ListenAddr, config.Current.Server.ListenPort)
 
-	r := chi.NewRouter()
-	r.Use(middleware.RequestID)
-	r.Use(middleware.RealIP)
-	r.Use(middleware.Logger)
-	r.Use(middleware.Recoverer)
-	r.Use(middleware.Timeout(60 * time.Second))
-	r.Use(middleware.StripSlashes)
-	r.Use(middleware.CleanPath)
-
-	r.Get("/", home)
-	r.Get("/ping", handlers.HealthCheck)
-	r.With(httpin.NewInput(handlers.WebFingerParams{})).Get("/.well-known/webfinger", handlers.WebFinger)
-
 	srv := &http.Server{
-		Handler:      r,
+		Handler:      a.Router,
 		Addr:         addr,
 		WriteTimeout: 15 * time.Second,
 		ReadTimeout:  15 * time.Second,

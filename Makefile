@@ -15,4 +15,7 @@ clean:
 	${DOCKER_COMPOSE_PREFIX} down
 	go mod tidy
 
-.PHONY = all clean app-up
+test:
+	go test ./... -cover
+
+.PHONY = all clean app-up test
