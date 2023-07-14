@@ -1,7 +1,6 @@
-package handlers
+package handler
 
 import (
-	"encoding/json"
 	"fmt"
 	"net/http"
 	"strings"
@@ -10,6 +9,7 @@ import (
 
 	"github.com/ggicci/httpin"
 	"github.com/hibare/DomainHQ/internal/config"
+	commonHttp "github.com/hibare/GoCommon/pkg/http"
 )
 
 const REL = "http://openid.net/specs/connect/1.0/issuer"
@@ -34,13 +34,13 @@ func WebFinger(w http.ResponseWriter, r *http.Request) {
 	resource := requestInput.Resource
 	parts := strings.SplitN(resource, ":", 2)
 	if len(parts) != 2 || parts[0] != "acct" {
-		http.Error(w, "Invalid 'resource' parameter", http.StatusBadRequest)
+		commonHttp.WriteErrorResponse(w, http.StatusBadRequest, fmt.Errorf("invalid 'resource' parameter"))
 		return
 	}
 
 	if !strings.HasSuffix(parts[1], fmt.Sprintf("@%s", config.Current.WebFinger.Domain)) {
 		log.Warnf("Resource '%s' does not match domain '%s'", resource, config.Current.WebFinger.Domain)
-		http.Error(w, "Domain not allowed", http.StatusForbidden)
+		commonHttp.WriteErrorResponse(w, http.StatusForbidden, fmt.Errorf("domain not allowed"))
 		return
 	}
 
@@ -57,6 +57,5 @@ func WebFinger(w http.ResponseWriter, r *http.Request) {
 	}
 	log.Infof("Resource '%s' is allowed", resource)
 
-	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(resp)
+	commonHttp.WriteJsonResponse(w, http.StatusOK, resp)
 }

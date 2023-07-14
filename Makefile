@@ -7,15 +7,24 @@ DOCKER_COMPOSE_PREFIX = HOST_UID=${UID} HOST_GID=${GID} docker-compose -f docker
 
 all: app-up
 
+db-up:
+	${DOCKER_COMPOSE_PREFIX} up -d postgres adminer
+
+db-down:
+	${DOCKER_COMPOSE_PREFIX} rm -fsv postgres adminer
+
 app-up:
 	go mod tidy
 	${DOCKER_COMPOSE_PREFIX} up 
-
+	
 clean: 
 	${DOCKER_COMPOSE_PREFIX} down
 	go mod tidy
 
-test:
+test: 
+ifndef GITHUB_ACTIONS
+	$(MAKE) db-up
+endif
 	go test ./... -cover
 
-.PHONY = all clean app-up test
+.PHONY = all clean app-up test db-up db-down

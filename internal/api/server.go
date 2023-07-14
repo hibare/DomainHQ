@@ -12,12 +12,17 @@ import (
 	"github.com/ggicci/httpin"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
-	"github.com/hibare/DomainHQ/internal/api/handlers"
+	"github.com/hibare/DomainHQ/internal/api/handler"
 	"github.com/hibare/DomainHQ/internal/config"
+	"github.com/hibare/DomainHQ/internal/models"
+	commonHandler "github.com/hibare/GoCommon/pkg/http/handler"
+	commonMiddleware "github.com/hibare/GoCommon/pkg/http/middleware"
+	"gorm.io/gorm"
 )
 
 type App struct {
 	Router *chi.Mux
+	DB     *gorm.DB
 }
 
 func home(w http.ResponseWriter, r *http.Request) {
@@ -25,6 +30,12 @@ func home(w http.ResponseWriter, r *http.Request) {
 }
 
 func (a *App) Init() {
+	db, err := models.InitDB()
+	if err != nil {
+		log.Fatal(err)
+	}
+	a.DB = db
+
 	a.Router = chi.NewRouter()
 	a.Router.Use(middleware.RequestID)
 	a.Router.Use(middleware.RealIP)
@@ -35,8 +46,21 @@ func (a *App) Init() {
 	a.Router.Use(middleware.CleanPath)
 
 	a.Router.Get("/", home)
-	a.Router.Get("/ping", handlers.HealthCheck)
-	a.Router.With(httpin.NewInput(handlers.WebFingerParams{})).Get("/.well-known/webfinger", handlers.WebFinger)
+	a.Router.Get("/ping", commonHandler.HealthCheck)
+	a.Router.With(httpin.NewInput(handler.WebFingerParams{})).Get("/.well-known/webfinger", handler.WebFinger)
+	a.Router.Route("/pks", func(r chi.Router) {
+		r.With(httpin.NewInput(handler.GPGLookupParams{})).Get("/lookup", func(w http.ResponseWriter, r *http.Request) {
+			handler.GPGPubKeyLookup(a.DB, w, r)
+		})
+		r.Group(func(r chi.Router) {
+			r.Use(func(h http.Handler) http.Handler {
+				return commonMiddleware.TokenAuth(h, config.Current.APIConfig.APIKeys)
+			})
+			r.With(httpin.NewInput(handler.GPGKeyAddParams{})).Post("/add", func(w http.ResponseWriter, r *http.Request) {
+				handler.GPGPubKeyAdd(a.DB, w, r)
+			})
+		})
+	})
 }
 
 func (a *App) Serve() {
