@@ -22,7 +22,9 @@ clean:
 	go mod tidy
 
 test: 
+ifndef GITHUB_ACTIONS
 	$(MAKE) db-up
+endif
 	go test ./... -cover
 
 .PHONY = all clean app-up test db-up db-down
