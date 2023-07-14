@@ -58,7 +58,7 @@ func LoadConfig() {
 		DB: DB{
 			Username: env.MustString("DB_USERNAME", ""),
 			Password: env.MustString("DB_PASSWORD", ""),
-			Host:     env.MustString("DB_HOST", ""),
+			Host:     env.MustString("DB_HOST", constants.DefaultDBHost),
 			Port:     env.MustInt("DB_PORT", constants.DefaultDBPort),
 			Name:     env.MustString("DB_NAME", constants.DefaultDBName),
 		},

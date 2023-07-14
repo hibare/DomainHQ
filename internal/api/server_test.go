@@ -27,8 +27,6 @@ const (
 func setEnv() {
 	os.Setenv("DB_USERNAME", "john")
 	os.Setenv("DB_PASSWORD", "pwd0123456789")
-	os.Setenv("DB_HOST", "localhost")
-	os.Setenv("DB_PORT", "5432")
 	os.Setenv("DB_NAME", "domain_hq_test")
 	os.Setenv("API_KEYS", testAPIKey)
 }
