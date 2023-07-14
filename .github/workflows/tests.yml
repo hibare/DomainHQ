@@ -83,6 +83,9 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
+        ports:
+          # Maps tcp port 5432 on service container to the host
+          - 5432:5432
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -95,10 +98,6 @@ jobs:
       - name: Go Test
         run: make test
         env:
-          # The hostname used to communicate with the PostgreSQL service container
-          DB_HOST: postgres
-          # The default PostgreSQL port
-          DB_PORT: 5432
           DB_USERNAME: john
           DB_PASSWORD: pwd0123456789
           DB_NAME: domain_hq_test
