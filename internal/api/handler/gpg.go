@@ -1,7 +1,6 @@
 package handler
 
 import (
-	"encoding/json"
 	"fmt"
 	"net/http"
 
@@ -39,7 +38,9 @@ func GPGPubKeyLookup(tx *gorm.DB, w http.ResponseWriter, r *http.Request) {
 			commonHttp.WriteErrorResponse(w, http.StatusInternalServerError, errors.ErrInternalServerError)
 			return
 		}
-		json.NewEncoder(w).Encode(key.PublicKey)
+		w.Header().Set("Content-Type", "text/plain")
+		fmt.Fprint(w, key.PublicKey)
+		return
 	} else {
 		commonHttp.WriteErrorResponse(w, http.StatusBadRequest, fmt.Errorf("invalid op"))
 		return
