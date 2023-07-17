@@ -1,5 +1,6 @@
 *.env
 tmp/
+_volumes
 
 # Binaries for programs and plugins
 *.exe
