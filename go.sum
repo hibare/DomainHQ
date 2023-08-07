@@ -19,8 +19,8 @@ github.com/gopherjs/gopherjs v0.0.0-20181017120253-0766667cb4d1 h1:EGx4pi6eqNxGa
 github.com/gopherjs/gopherjs v0.0.0-20181017120253-0766667cb4d1/go.mod h1:wJfORRmW1u3UXTncJ5qlYoELFm8eSnnEO6hX4iZ3EWY=
 github.com/gorilla/mux v1.8.0 h1:i40aqfkR1h2SlN9hojwV5ZA91wcXFOvkdNIeFDP5koI=
 github.com/gorilla/mux v1.8.0/go.mod h1:DVbg23sWSpFRCP0SfiEN6jmj59UnW/n46BH5rLB71So=
-github.com/hibare/GoCommon v0.2.0 h1:YB399YvU99hwJpc8/3vvq8dQLwvteo0zsZMq4JaZ+k0=
-github.com/hibare/GoCommon v0.2.0/go.mod h1:ehj0WvpMgnGnNhKIfmBaRFDnC7rm0yhyIRnzCl8Lbg0=
+github.com/hibare/GoCommon v0.6.0 h1:9GXCBWo61Bs0y80rTVkjiTiU5PxhKuGxlRbR0nfx894=
+github.com/hibare/GoCommon v0.6.0/go.mod h1:ehj0WvpMgnGnNhKIfmBaRFDnC7rm0yhyIRnzCl8Lbg0=
 github.com/inconshreveable/mousetrap v1.1.0 h1:wN+x4NVGpMsO7ErUn/mUI3vEoE6Jt13X2s0bqwp9tc8=
 github.com/inconshreveable/mousetrap v1.1.0/go.mod h1:vpF70FUmC8bwa3OWnCshd2FqLfsEA9PFc4w1p2J65bw=
 github.com/jackc/pgpassfile v1.0.0 h1:/6Hmqy13Ss2zCq62VdNG8tM1wchn8zjSGOBJ6icpsIM=
