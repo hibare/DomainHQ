@@ -5,6 +5,8 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+      day: "friday"
+      time: "00:30"
     target-branch: "dev"
     assignees:
       - "hibare"
@@ -14,15 +16,22 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+      day: "friday"
+      time: "00:30"
     target-branch: "dev"
     assignees:
       - "hibare"
+    allow:
+      # Allow only direct updates for
+      - dependency-type: "direct"
 
   # Maintain version for Docker
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
       interval: "weekly"
+      day: "friday"
+      time: "00:30"
     target-branch: "dev"
     assignees:
       - "hibare"
