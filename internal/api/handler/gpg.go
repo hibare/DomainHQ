@@ -6,8 +6,8 @@ import (
 
 	"github.com/ggicci/httpin"
 	"github.com/hibare/DomainHQ/internal/models"
-	"github.com/hibare/GoCommon/pkg/errors"
-	commonHttp "github.com/hibare/GoCommon/pkg/http"
+	"github.com/hibare/GoCommon/v2/pkg/errors"
+	commonHttp "github.com/hibare/GoCommon/v2/pkg/http"
 	log "github.com/sirupsen/logrus"
 	"gorm.io/gorm"
 )

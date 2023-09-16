@@ -17,8 +17,8 @@ github.com/go-chi/chi/v5 v5.0.10/go.mod h1:DslCQbL2OYiznFReuXYUmQ2hGd1aDpCnlMNIT
 github.com/google/uuid v1.3.1 h1:KjJaJ9iWZ3jOFZIf1Lqf4laDRCasjl0BCmnEGxkdLb4=
 github.com/google/uuid v1.3.1/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
 github.com/gorilla/mux v1.8.0 h1:i40aqfkR1h2SlN9hojwV5ZA91wcXFOvkdNIeFDP5koI=
-github.com/hibare/GoCommon v1.0.0 h1:N/VZi2YDt3UCTHwknDFvEsHhKULuTkr4ACaIh6n1bLA=
-github.com/hibare/GoCommon v1.0.0/go.mod h1:W7koBLJyuFIQCeCuDx7+p8mDTU6UtMtZ7X6m2UHq4KI=
+github.com/hibare/GoCommon/v2 v2.3.0 h1:STMFmOxVUYjJJJZGKXVH3Qmvp1qD46T8VssjvXjviCQ=
+github.com/hibare/GoCommon/v2 v2.3.0/go.mod h1:ayCKed4i8wJ3yznNhGM+PUUUi8N12TEiep0+BTiWOgs=
 github.com/inconshreveable/mousetrap v1.1.0 h1:wN+x4NVGpMsO7ErUn/mUI3vEoE6Jt13X2s0bqwp9tc8=
 github.com/inconshreveable/mousetrap v1.1.0/go.mod h1:vpF70FUmC8bwa3OWnCshd2FqLfsEA9PFc4w1p2J65bw=
 github.com/jackc/pgpassfile v1.0.0 h1:/6Hmqy13Ss2zCq62VdNG8tM1wchn8zjSGOBJ6icpsIM=

@@ -9,7 +9,7 @@ import (
 
 	"github.com/ggicci/httpin"
 	"github.com/hibare/DomainHQ/internal/config"
-	commonHttp "github.com/hibare/GoCommon/pkg/http"
+	commonHttp "github.com/hibare/GoCommon/v2/pkg/http"
 )
 
 const REL = "http://openid.net/specs/connect/1.0/issuer"

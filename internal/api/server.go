@@ -15,8 +15,8 @@ import (
 	"github.com/hibare/DomainHQ/internal/api/handler"
 	"github.com/hibare/DomainHQ/internal/config"
 	"github.com/hibare/DomainHQ/internal/models"
-	commonHandler "github.com/hibare/GoCommon/pkg/http/handler"
-	commonMiddleware "github.com/hibare/GoCommon/pkg/http/middleware"
+	commonHandler "github.com/hibare/GoCommon/v2/pkg/http/handler"
+	commonMiddleware "github.com/hibare/GoCommon/v2/pkg/http/middleware"
 	"gorm.io/gorm"
 )
 

@@ -11,7 +11,7 @@ import (
 
 	"github.com/hibare/DomainHQ/internal/api/handler"
 	"github.com/hibare/DomainHQ/internal/config"
-	commonMiddleware "github.com/hibare/GoCommon/pkg/http/middleware"
+	commonMiddleware "github.com/hibare/GoCommon/v2/pkg/http/middleware"
 	"github.com/stretchr/testify/assert"
 	"gorm.io/gorm"
 )

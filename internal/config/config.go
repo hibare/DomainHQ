@@ -3,7 +3,7 @@ package config
 import (
 	"github.com/google/uuid"
 	"github.com/hibare/DomainHQ/internal/constants"
-	"github.com/hibare/GoCommon/pkg/env"
+	"github.com/hibare/GoCommon/v2/pkg/env"
 	log "github.com/sirupsen/logrus"
 )
 
