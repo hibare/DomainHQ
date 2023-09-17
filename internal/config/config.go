@@ -55,26 +55,26 @@ func LoadConfig() {
 
 	Current = &Config{
 		Server: ServerConfig{
-			ListenAddr: env.MustString("LISTEN_ADDR", constants.DefaultAPIListenAddr),
-			ListenPort: env.MustInt("LISTEN_PORT", constants.DefaultAPIListenPort),
+			ListenAddr: env.MustString("DOMAIN_HQ_LISTEN_ADDR", constants.DefaultAPIListenAddr),
+			ListenPort: env.MustInt("DOMAIN_HQ_LISTEN_PORT", constants.DefaultAPIListenPort),
 		},
 		WebFinger: WebFingerConfig{
-			Resource: env.MustString("WEB_FINGER_RESOURCE", constants.DefaultWebFingerResource),
-			Domain:   env.MustString("WEB_FINGER_DOMAIN", constants.DefaultWebFingerDomain),
+			Resource: env.MustString("DOMAIN_HQ_WEB_FINGER_RESOURCE", constants.DefaultWebFingerResource),
+			Domain:   env.MustString("DOMAIN_HQ_WEB_FINGER_DOMAIN", constants.DefaultWebFingerDomain),
 		},
 		DB: DBConfig{
-			Username: env.MustString("DB_USERNAME", ""),
-			Password: env.MustString("DB_PASSWORD", ""),
-			Host:     env.MustString("DB_HOST", constants.DefaultDBHost),
-			Port:     env.MustInt("DB_PORT", constants.DefaultDBPort),
-			Name:     env.MustString("DB_NAME", constants.DefaultDBName),
+			Username: env.MustString("DOMAIN_HQ_DB_USERNAME", ""),
+			Password: env.MustString("DOMAIN_HQ_DB_PASSWORD", ""),
+			Host:     env.MustString("DOMAIN_HQ_DB_HOST", constants.DefaultDBHost),
+			Port:     env.MustInt("DOMAIN_HQ_DB_PORT", constants.DefaultDBPort),
+			Name:     env.MustString("DOMAIN_HQ_DB_NAME", constants.DefaultDBName),
 		},
 		API: APIConfig{
-			APIKeys: env.MustStringSlice("API_KEYS", token),
+			APIKeys: env.MustStringSlice("DOMAIN_HQ_API_KEYS", token),
 		},
 		Logger: LoggerConfig{
-			Level: env.MustString("LOG_LEVEL", commonLogger.DefaultLoggerLevel),
-			Mode:  env.MustString("LOG_MODE", commonLogger.DefaultLoggerMode),
+			Level: env.MustString("DOMAIN_HQ_LOG_LEVEL", commonLogger.DefaultLoggerLevel),
+			Mode:  env.MustString("DOMAIN_HQ_LOG_MODE", commonLogger.DefaultLoggerMode),
 		},
 	}
 
