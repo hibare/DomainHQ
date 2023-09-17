@@ -8,7 +8,7 @@ import (
 	"github.com/hibare/DomainHQ/internal/models"
 	"github.com/hibare/GoCommon/v2/pkg/errors"
 	commonHttp "github.com/hibare/GoCommon/v2/pkg/http"
-	log "github.com/sirupsen/logrus"
+	"github.com/rs/zerolog/log"
 	"gorm.io/gorm"
 )
 
@@ -34,7 +34,7 @@ func GPGPubKeyLookup(tx *gorm.DB, w http.ResponseWriter, r *http.Request) {
 				return
 			}
 
-			log.Errorf("Error looking up key: %s", err.Error())
+			log.Error().Err(err).Msg("Error looking up key")
 			commonHttp.WriteErrorResponse(w, http.StatusInternalServerError, errors.ErrInternalServerError)
 			return
 		}
@@ -58,7 +58,7 @@ func GPGPubKeyAdd(tx *gorm.DB, w http.ResponseWriter, r *http.Request) {
 
 	err = models.AddPubKey(tx, &parsedKey)
 	if err != nil {
-		log.Errorf("Error adding key: %s", err.Error())
+		log.Error().Err(err).Msg("Error adding key")
 		commonHttp.WriteErrorResponse(w, http.StatusInternalServerError, errors.ErrInternalServerError)
 		return
 	}

@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/hibare/DomainHQ/internal/constants"
+	commonLogger "github.com/hibare/GoCommon/v2/pkg/logger"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -28,6 +29,8 @@ func setenv() {
 	os.Setenv("DB_PORT", strconv.Itoa(constants.DefaultDBPort))
 	os.Setenv("DB_NAME", constants.DefaultDBName)
 	os.Setenv("API_KEYS", testAPIKeys)
+	os.Setenv("LOG_LEVEL", commonLogger.DefaultLoggerLevel)
+	os.Setenv("LOG_MODE", commonLogger.DefaultLoggerMode)
 }
 
 func unsetEnv() {
@@ -41,6 +44,8 @@ func unsetEnv() {
 	os.Unsetenv("DB_PORT")
 	os.Unsetenv("DB_NAME")
 	os.Unsetenv("API_KEYS")
+	os.Unsetenv("LOG_LEVEL")
+	os.Unsetenv("LOG_MODE")
 }
 
 func TestEnvLoadedConfig(t *testing.T) {
@@ -52,8 +57,9 @@ func TestEnvLoadedConfig(t *testing.T) {
 	assert.Equal(t, testAPIListenPort, Current.Server.ListenPort)
 	assert.Equal(t, testWebFingerDomain, Current.WebFinger.Domain)
 	assert.Equal(t, testWebFingerResource, Current.WebFinger.Resource)
-	assert.Equal(t, []string{testAPIKeys}, Current.APIConfig.APIKeys)
-
+	assert.Equal(t, []string{testAPIKeys}, Current.API.APIKeys)
+	assert.Equal(t, commonLogger.DefaultLoggerLevel, Current.Logger.Level)
+	assert.Equal(t, commonLogger.DefaultLoggerMode, Current.Logger.Mode)
 	unsetEnv()
 }
 
@@ -66,5 +72,7 @@ func TestDefaultConfig(t *testing.T) {
 	assert.Equal(t, constants.DefaultAPIListenPort, Current.Server.ListenPort)
 	assert.Equal(t, constants.DefaultWebFingerDomain, Current.WebFinger.Domain)
 	assert.Equal(t, constants.DefaultWebFingerResource, Current.WebFinger.Resource)
-	assert.NotEmpty(t, Current.APIConfig.APIKeys)
+	assert.NotEmpty(t, Current.API.APIKeys)
+	assert.Equal(t, commonLogger.DefaultLoggerLevel, Current.Logger.Level)
+	assert.Equal(t, commonLogger.DefaultLoggerMode, Current.Logger.Mode)
 }

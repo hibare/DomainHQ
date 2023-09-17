@@ -5,6 +5,7 @@ import (
 
 	"github.com/hibare/DomainHQ/internal/api"
 	"github.com/hibare/DomainHQ/internal/config"
+	commonLogger "github.com/hibare/GoCommon/v2/pkg/logger"
 	"github.com/spf13/cobra"
 )
 
@@ -26,5 +27,5 @@ func Execute() {
 }
 
 func init() {
-	cobra.OnInitialize(config.LoadConfig)
+	cobra.OnInitialize(commonLogger.InitLogger, config.LoadConfig)
 }
