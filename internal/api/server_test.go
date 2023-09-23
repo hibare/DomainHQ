@@ -25,19 +25,19 @@ const (
 )
 
 func setEnv() {
-	os.Setenv("DB_USERNAME", "john")
-	os.Setenv("DB_PASSWORD", "pwd0123456789")
-	os.Setenv("DB_NAME", "domain_hq_test")
-	os.Setenv("API_KEYS", testAPIKey)
+	os.Setenv("DOMAIN_HQ_DB_USERNAME", "john")
+	os.Setenv("DOMAIN_HQ_DB_PASSWORD", "pwd0123456789")
+	os.Setenv("DOMAIN_HQ_DB_NAME", "domain_hq_test")
+	os.Setenv("DOMAIN_HQ_API_KEYS", testAPIKey)
 }
 
 func unsetEnv() {
-	os.Unsetenv("DB_USERNAME")
-	os.Unsetenv("DB_PASSWORD")
-	os.Unsetenv("DB_HOST")
-	os.Unsetenv("DB_PORT")
-	os.Unsetenv("DB_NAME")
-	os.Unsetenv("API_KEYS")
+	os.Unsetenv("DOMAIN_HQ_DB_USERNAME")
+	os.Unsetenv("DOMAIN_HQ_DB_PASSWORD")
+	os.Unsetenv("DOMAIN_HQ_DB_HOST")
+	os.Unsetenv("DOMAIN_HQ_DB_PORT")
+	os.Unsetenv("DOMAIN_HQ_DB_NAME")
+	os.Unsetenv("DOMAIN_HQ_API_KEYS")
 }
 
 func TruncateTables(db *gorm.DB) {

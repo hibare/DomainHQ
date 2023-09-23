@@ -78,6 +78,14 @@ func LoadConfig() {
 		},
 	}
 
+	if Current.DB.Username == "" {
+		log.Fatal().Msg("Error missing DB username")
+	}
+
+	if Current.DB.Password == "" {
+		log.Fatal().Msg("Error missing DB password")
+	}
+
 	if !commonLogger.IsValidLogLevel(Current.Logger.Level) {
 		log.Fatal().Str("level", Current.Logger.Level).Msg("Error invalid logger level")
 	}
