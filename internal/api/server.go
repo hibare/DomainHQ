@@ -3,7 +3,6 @@ package api
 import (
 	"context"
 	"fmt"
-	"log"
 	"net/http"
 	"os"
 	"os/signal"
@@ -17,6 +16,7 @@ import (
 	"github.com/hibare/DomainHQ/internal/models"
 	commonHandler "github.com/hibare/GoCommon/v2/pkg/http/handler"
 	commonMiddleware "github.com/hibare/GoCommon/v2/pkg/http/middleware"
+	"github.com/rs/zerolog/log"
 	"gorm.io/gorm"
 )
 
@@ -32,7 +32,7 @@ func home(w http.ResponseWriter, r *http.Request) {
 func (a *App) Init() {
 	db, err := models.InitDB()
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal().Err(err)
 	}
 	a.DB = db
 
@@ -54,7 +54,7 @@ func (a *App) Init() {
 		})
 		r.Group(func(r chi.Router) {
 			r.Use(func(h http.Handler) http.Handler {
-				return commonMiddleware.TokenAuth(h, config.Current.APIConfig.APIKeys)
+				return commonMiddleware.TokenAuth(h, config.Current.API.APIKeys)
 			})
 			r.With(httpin.NewInput(handler.GPGKeyAddParams{})).Post("/add", func(w http.ResponseWriter, r *http.Request) {
 				handler.GPGPubKeyAdd(a.DB, w, r)
@@ -75,12 +75,12 @@ func (a *App) Serve() {
 		IdleTimeout:  time.Second * 60,
 	}
 
-	log.Printf("Listening for address %s on port %d\n", config.Current.Server.ListenAddr, config.Current.Server.ListenPort)
+	log.Info().Msgf("Listening for address %s on port %d\n", config.Current.Server.ListenAddr, config.Current.Server.ListenPort)
 
 	// Run our server in a goroutine so that it doesn't block.
 	go func() {
 		if err := srv.ListenAndServe(); err != nil {
-			log.Println(err)
+			log.Error().Err(err)
 		}
 	}()
 

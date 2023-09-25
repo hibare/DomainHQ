@@ -5,11 +5,10 @@ import (
 	"net/http"
 	"strings"
 
-	log "github.com/sirupsen/logrus"
-
 	"github.com/ggicci/httpin"
 	"github.com/hibare/DomainHQ/internal/config"
 	commonHttp "github.com/hibare/GoCommon/v2/pkg/http"
+	"github.com/rs/zerolog/log"
 )
 
 const REL = "http://openid.net/specs/connect/1.0/issuer"
@@ -39,7 +38,7 @@ func WebFinger(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if !strings.HasSuffix(parts[1], fmt.Sprintf("@%s", config.Current.WebFinger.Domain)) {
-		log.Warnf("Resource '%s' does not match domain '%s'", resource, config.Current.WebFinger.Domain)
+		log.Warn().Msgf("Resource '%s' does not match domain '%s'", resource, config.Current.WebFinger.Domain)
 		commonHttp.WriteErrorResponse(w, http.StatusForbidden, fmt.Errorf("domain not allowed"))
 		return
 	}
@@ -55,7 +54,7 @@ func WebFinger(w http.ResponseWriter, r *http.Request) {
 			},
 		},
 	}
-	log.Infof("Resource '%s' is allowed", resource)
+	log.Info().Msgf("Resource '%s' is allowed", resource)
 
 	commonHttp.WriteJsonResponse(w, http.StatusOK, resp)
 }

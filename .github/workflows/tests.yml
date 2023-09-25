@@ -98,6 +98,6 @@ jobs:
       - name: Go Test
         run: make test
         env:
-          DB_USERNAME: john
-          DB_PASSWORD: pwd0123456789
-          DB_NAME: domain_hq_test
+          DOMAIN_HQ_DB_USERNAME: john
+          DOMAIN_HQ_DB_PASSWORD: pwd0123456789
+          DOMAIN_HQ_DB_NAME: domain_hq_test
