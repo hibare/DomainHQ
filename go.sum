@@ -9,8 +9,8 @@ github.com/creack/pty v1.1.9/go.mod h1:oKZEueFk5CKHvIhNR5MUki03XCEU+Q6VDXinZuGJ3
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
-github.com/ggicci/httpin v0.14.1 h1:qLfngJ83xneiN5gdiJWT0umFsrI+PffrJADoDFG51bs=
-github.com/ggicci/httpin v0.14.1/go.mod h1:m/RhY5rRPkNQs4VMPK66LxBX4ZMPxPyXQvrnmBEo2Y8=
+github.com/ggicci/httpin v0.14.2 h1:rGrG/OgXg3XZbRBBcqf8TSeu1nW9XX6L9F42XGhwgRQ=
+github.com/ggicci/httpin v0.14.2/go.mod h1:m/RhY5rRPkNQs4VMPK66LxBX4ZMPxPyXQvrnmBEo2Y8=
 github.com/ggicci/owl v0.4.0 h1:1cwRlynLe6P5ylLyjNWtOP5qVO1bYUmziPYVbOphGHQ=
 github.com/ggicci/owl v0.4.0/go.mod h1:TRPWshRwYej6uES//YW5aNgLB370URwyta1Ytfs7KXs=
 github.com/go-chi/chi/v5 v5.0.10 h1:rLz5avzKpjqxrYwXNfmjkrYYXOyLJd37pz53UFHC6vk=
