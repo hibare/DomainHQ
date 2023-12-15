@@ -16,11 +16,11 @@ github.com/ggicci/owl v0.4.0/go.mod h1:TRPWshRwYej6uES//YW5aNgLB370URwyta1Ytfs7K
 github.com/go-chi/chi/v5 v5.0.10 h1:rLz5avzKpjqxrYwXNfmjkrYYXOyLJd37pz53UFHC6vk=
 github.com/go-chi/chi/v5 v5.0.10/go.mod h1:DslCQbL2OYiznFReuXYUmQ2hGd1aDpCnlMNITLSKoi8=
 github.com/godbus/dbus/v5 v5.0.4/go.mod h1:xhWf0FNVPg57R7Z0UbKHbJfkEywrmjJnf7w5xrFpKfA=
-github.com/google/uuid v1.4.0 h1:MtMxsa51/r9yyhkyLsVeVt0B+BGQZzpQiTQ4eHZ8bc4=
-github.com/google/uuid v1.4.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
+github.com/google/uuid v1.5.0 h1:1p67kYwdtXjb0gL0BPiP1Av9wiZPo5A8z2cWkTZ+eyU=
+github.com/google/uuid v1.5.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
 github.com/gorilla/mux v1.8.0 h1:i40aqfkR1h2SlN9hojwV5ZA91wcXFOvkdNIeFDP5koI=
-github.com/hibare/GoCommon/v2 v2.5.0 h1:SDK20zzoWENhzHwTAe4zqMNBCCHeFap2sRb92XfkedQ=
-github.com/hibare/GoCommon/v2 v2.5.0/go.mod h1:1xTiwupcHfYCk3BUfSM9GQSIEkb0WodPXdHU1SOs0xM=
+github.com/hibare/GoCommon/v2 v2.6.0 h1:F6+GaSRkyxAKvTxlfXwwIYHNYAFveYu3Q0O3i1K0Ruw=
+github.com/hibare/GoCommon/v2 v2.6.0/go.mod h1:Ww/kmaJdPk0FzPbWp+J7WVsy1RrDvgw88TTS/LnPWxk=
 github.com/inconshreveable/mousetrap v1.1.0 h1:wN+x4NVGpMsO7ErUn/mUI3vEoE6Jt13X2s0bqwp9tc8=
 github.com/inconshreveable/mousetrap v1.1.0/go.mod h1:vpF70FUmC8bwa3OWnCshd2FqLfsEA9PFc4w1p2J65bw=
 github.com/jackc/pgpassfile v1.0.0 h1:/6Hmqy13Ss2zCq62VdNG8tM1wchn8zjSGOBJ6icpsIM=
