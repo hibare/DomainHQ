@@ -1,10 +1,13 @@
-FROM golang:1.21.4-bookworm AS base
+FROM golang:1.21.5-alpine AS base
 
 # Build main app
 FROM base AS build
 
 # Install healthcheck cmd
-RUN curl -sfL https://raw.githubusercontent.com/hibare/go-docker-healthcheck/main/install.sh | sh -s -- -d -b /usr/local/bin
+RUN apk update \
+    && apk add curl \
+    && apk add cosign \
+    && curl -sfL https://raw.githubusercontent.com/hibare/go-docker-healthcheck/main/install.sh | sh -s -- -d -v -b /usr/local/bin
 
 WORKDIR /src/
 
