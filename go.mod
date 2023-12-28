@@ -1,14 +1,15 @@
 module github.com/hibare/DomainHQ
 
-go 1.20
+go 1.21
+
+toolchain go1.21.5
 
 require (
 	github.com/ProtonMail/go-crypto v0.0.0-20230717121422-5aa5874ade95
 	github.com/ggicci/httpin v0.14.2
 	github.com/go-chi/chi/v5 v5.0.11
 	github.com/google/uuid v1.5.0
-	github.com/hibare/GoCommon/v2 v2.6.0
-	github.com/rs/zerolog v1.31.0
+	github.com/hibare/GoCommon/v2 v2.7.0
 	github.com/spf13/cobra v1.8.0
 	github.com/stretchr/testify v1.8.4
 	gorm.io/driver/postgres v1.5.4
@@ -27,8 +28,6 @@ require (
 	github.com/jinzhu/now v1.1.5 // indirect
 	github.com/joho/godotenv v1.5.1 // indirect
 	github.com/kr/text v0.2.0 // indirect
-	github.com/mattn/go-colorable v0.1.13 // indirect
-	github.com/mattn/go-isatty v0.0.19 // indirect
 	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
 	github.com/rogpeppe/go-internal v1.11.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect

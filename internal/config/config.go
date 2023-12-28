@@ -1,11 +1,12 @@
 package config
 
 import (
+	"log"
+
 	"github.com/google/uuid"
 	"github.com/hibare/DomainHQ/internal/constants"
 	"github.com/hibare/GoCommon/v2/pkg/env"
 	commonLogger "github.com/hibare/GoCommon/v2/pkg/logger"
-	"github.com/rs/zerolog/log"
 )
 
 type ServerConfig struct {
@@ -79,23 +80,21 @@ func LoadConfig() {
 	}
 
 	if Current.DB.Username == "" {
-		log.Fatal().Msg("Error missing DB username")
+		log.Fatal("Error missing DB username")
 	}
 
 	if Current.DB.Password == "" {
-		log.Fatal().Msg("Error missing DB password")
+		log.Fatal("Error missing DB password")
 	}
 
 	if !commonLogger.IsValidLogLevel(Current.Logger.Level) {
-		log.Fatal().Str("level", Current.Logger.Level).Msg("Error invalid logger level")
+		log.Fatal("Error invalid logger level")
 	}
 
 	if !commonLogger.IsValidLogMode(Current.Logger.Mode) {
-		log.Fatal().Str("mode", Current.Logger.Mode).Msg("Error invalid logger mode")
+		log.Fatal("Error invalid logger mode")
 	}
 
-	commonLogger.SetLoggingLevel(Current.Logger.Level)
-	commonLogger.SetLoggingMode(Current.Logger.Mode)
+	commonLogger.InitLogger(&Current.Logger.Level, &Current.Logger.Mode)
 
-	log.Info().Msgf("WebFinger config: %+v", Current.WebFinger)
 }

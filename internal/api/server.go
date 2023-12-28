@@ -3,6 +3,7 @@ package api
 import (
 	"context"
 	"fmt"
+	"log/slog"
 	"net/http"
 	"os"
 	"os/signal"
@@ -16,7 +17,6 @@ import (
 	"github.com/hibare/DomainHQ/internal/models"
 	commonHandler "github.com/hibare/GoCommon/v2/pkg/http/handler"
 	commonMiddleware "github.com/hibare/GoCommon/v2/pkg/http/middleware"
-	"github.com/rs/zerolog/log"
 	"gorm.io/gorm"
 )
 
@@ -32,14 +32,14 @@ func home(w http.ResponseWriter, r *http.Request) {
 func (a *App) Init() {
 	db, err := models.InitDB()
 	if err != nil {
-		log.Fatal().Err(err)
+		slog.Error("failed to initialize database", "error", err)
 	}
 	a.DB = db
 
 	a.Router = chi.NewRouter()
 	a.Router.Use(middleware.RequestID)
 	a.Router.Use(middleware.RealIP)
-	a.Router.Use(middleware.Logger)
+	a.Router.Use(commonMiddleware.RequestLogger)
 	a.Router.Use(middleware.Recoverer)
 	a.Router.Use(middleware.Timeout(60 * time.Second))
 	a.Router.Use(middleware.StripSlashes)
@@ -75,12 +75,12 @@ func (a *App) Serve() {
 		IdleTimeout:  time.Second * 60,
 	}
 
-	log.Info().Msgf("Listening for address %s on port %d\n", config.Current.Server.ListenAddr, config.Current.Server.ListenPort)
+	slog.Info("Starting server", "address", addr)
 
 	// Run our server in a goroutine so that it doesn't block.
 	go func() {
 		if err := srv.ListenAndServe(); err != nil {
-			log.Error().Err(err)
+			slog.Error("failed to start server", "error", err)
 		}
 	}()
 

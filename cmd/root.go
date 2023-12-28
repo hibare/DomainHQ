@@ -27,5 +27,5 @@ func Execute() {
 }
 
 func init() {
-	cobra.OnInitialize(commonLogger.InitLogger, config.LoadConfig)
+	cobra.OnInitialize(commonLogger.InitDefaultLogger, config.LoadConfig)
 }
