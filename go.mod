@@ -2,8 +2,6 @@ module github.com/hibare/DomainHQ
 
 go 1.21
 
-toolchain go1.21.5
-
 require (
 	github.com/ProtonMail/go-crypto v0.0.0-20230717121422-5aa5874ade95
 	github.com/ggicci/httpin v0.14.2
