@@ -10,6 +10,7 @@ import (
 	"time"
 
 	"github.com/ggicci/httpin"
+	httpin_integration "github.com/ggicci/httpin/integration"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/hibare/DomainHQ/internal/api/handler"
@@ -101,5 +102,5 @@ func (a *App) Serve() {
 
 func init() {
 	// Register a directive named "path" to retrieve values from `chi.URLParam`,
-	httpin.UseGochiURLParam("path", chi.URLParam)
+	httpin_integration.UseGochiURLParam("path", chi.URLParam)
 }
