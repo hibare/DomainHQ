@@ -6,7 +6,7 @@ require (
 	github.com/ProtonMail/go-crypto v1.1.0-alpha.0
 	github.com/ggicci/httpin v0.15.3
 	github.com/go-chi/chi/v5 v5.0.11
-	github.com/google/uuid v1.5.0
+	github.com/google/uuid v1.6.0
 	github.com/hibare/GoCommon/v2 v2.8.0
 	github.com/spf13/cobra v1.8.0
 	github.com/stretchr/testify v1.8.4
