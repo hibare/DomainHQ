@@ -4,14 +4,14 @@ go 1.21
 
 require (
 	github.com/ProtonMail/go-crypto v1.1.0-alpha.2
-	github.com/ggicci/httpin v0.18.0
+	github.com/ggicci/httpin v0.18.1
 	github.com/go-chi/chi/v5 v5.0.12
 	github.com/google/uuid v1.6.0
 	github.com/hibare/GoCommon/v2 v2.9.0
 	github.com/spf13/cobra v1.8.0
 	github.com/stretchr/testify v1.9.0
 	gorm.io/driver/postgres v1.5.7
-	gorm.io/gorm v1.25.9
+	gorm.io/gorm v1.25.10
 )
 
 require (
