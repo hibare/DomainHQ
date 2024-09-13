@@ -7,11 +7,11 @@ require (
 	github.com/ggicci/httpin v0.19.0
 	github.com/go-chi/chi/v5 v5.1.0
 	github.com/google/uuid v1.6.0
-	github.com/hibare/GoCommon/v2 v2.13.0
+	github.com/hibare/GoCommon/v2 v2.17.0
 	github.com/spf13/cobra v1.8.1
 	github.com/stretchr/testify v1.9.0
 	gorm.io/driver/postgres v1.5.9
-	gorm.io/gorm v1.25.11
+	gorm.io/gorm v1.25.12
 )
 
 require (
