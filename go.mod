@@ -3,13 +3,13 @@ module github.com/hibare/DomainHQ
 go 1.21
 
 require (
-	github.com/ProtonMail/go-crypto v1.1.2
+	github.com/ProtonMail/go-crypto v1.1.3
 	github.com/ggicci/httpin v0.19.0
 	github.com/go-chi/chi/v5 v5.1.0
 	github.com/google/uuid v1.6.0
 	github.com/hibare/GoCommon/v2 v2.19.0
 	github.com/spf13/cobra v1.8.1
-	github.com/stretchr/testify v1.9.0
+	github.com/stretchr/testify v1.10.0
 	gorm.io/driver/postgres v1.5.10
 	gorm.io/gorm v1.25.12
 )
