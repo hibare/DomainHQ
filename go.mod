@@ -5,7 +5,7 @@ go 1.21
 require (
 	github.com/ProtonMail/go-crypto v1.1.3
 	github.com/ggicci/httpin v0.19.0
-	github.com/go-chi/chi/v5 v5.1.0
+	github.com/go-chi/chi/v5 v5.2.0
 	github.com/google/uuid v1.6.0
 	github.com/hibare/GoCommon/v2 v2.19.0
 	github.com/spf13/cobra v1.8.1
