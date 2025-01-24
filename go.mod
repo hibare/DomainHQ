@@ -7,7 +7,7 @@ require (
 	github.com/ggicci/httpin v0.19.0
 	github.com/go-chi/chi/v5 v5.2.0
 	github.com/google/uuid v1.6.0
-	github.com/hibare/GoCommon/v2 v2.19.0
+	github.com/hibare/GoCommon/v2 v2.20.0
 	github.com/spf13/cobra v1.8.1
 	github.com/stretchr/testify v1.10.0
 	gorm.io/driver/postgres v1.5.11
