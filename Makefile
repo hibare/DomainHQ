@@ -22,8 +22,8 @@ db-up: ## Start DB Services
 db-down: ## Stop DB Services
 	${DOCKER_COMPOSE_PREFIX} rm -fsv postgres adminer
 
-.PHONY: app-up
-app-up: ## Start App Services
+.PHONY: dev
+dev: ## Start App Services
 	go mod tidy
 	${DOCKER_COMPOSE_PREFIX} up 
 

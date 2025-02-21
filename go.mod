@@ -1,6 +1,7 @@
 module github.com/hibare/DomainHQ
 
-go 1.21
+go 1.24.0
+
 require (
 	github.com/ProtonMail/go-crypto v1.1.5
 	github.com/ggicci/httpin v0.19.0
