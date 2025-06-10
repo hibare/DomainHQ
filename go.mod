@@ -15,7 +15,7 @@ require (
 )
 
 require (
-	github.com/cloudflare/circl v1.6.0 // indirect
+	github.com/cloudflare/circl v1.6.1 // indirect
 	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc // indirect
 	github.com/ggicci/owl v0.8.2 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
