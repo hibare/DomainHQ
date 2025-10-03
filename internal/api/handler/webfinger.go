@@ -56,5 +56,5 @@ func WebFinger(w http.ResponseWriter, r *http.Request) {
 	}
 	slog.Info("Resource allowed", "resource", resource)
 
-	commonHttp.WriteJsonResponse(w, http.StatusOK, resp)
+	commonHttp.WriteJSONResponse(w, http.StatusOK, resp)
 }
