@@ -64,5 +64,5 @@ func GPGPubKeyAdd(tx *gorm.DB, w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	commonHttp.WriteJsonResponse(w, http.StatusOK, "key added")
+	commonHttp.WriteJSONResponse(w, http.StatusOK, "key added")
 }
