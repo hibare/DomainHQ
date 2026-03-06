@@ -3,7 +3,7 @@ module github.com/hibare/DomainHQ
 go 1.25.1
 
 require (
-	github.com/ProtonMail/go-crypto v1.3.0
+	github.com/ProtonMail/go-crypto v1.4.0
 	github.com/ggicci/httpin v0.20.2
 	github.com/go-chi/chi/v5 v5.2.5
 	github.com/google/uuid v1.6.0
